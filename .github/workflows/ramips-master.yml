@@ -5,7 +5,7 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
-name: X64-1907
+name: Ramips-Master
 
 on:
   schedule:
@@ -34,7 +34,7 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/Lienol/openwrt
-        REPO_BRANCH: dev-19.07
+        REPO_BRANCH: dev-master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -46,7 +46,7 @@ jobs:
       run: |
           cd openwrt
           rm -f .config
-          cp ../x64-1907 .config
+          cp ../ramips-master .config
           
     - name: Make Defconfig
       run: |
